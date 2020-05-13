@@ -138,7 +138,7 @@ set encoding=utf-8
   nmap <C-W>u :call MergeTabs()<CR>
 
 " Git Shortcuts
-  " Type message and press Enter 
+  " Type message and press Enter (FIsh Shell alias)
 	nnoremap <leader>gp :!gitpush 
 
 
