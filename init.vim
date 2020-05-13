@@ -21,9 +21,9 @@ set encoding=utf-8
     Plug 'scrooloose/nerdtree'    " File Browser - Nerd Tree
     Plug 'davidhalter/jedi-vim'   " Python Plugin
     Plug 'fatih/vim-go'           " Go Plugin 
-
-
- " Initialize plugin system
+    
+    " color schemes
+    Plug 'rafi/awesome-vim-colorschemes'
   call plug#end()
 
 
@@ -50,6 +50,9 @@ set encoding=utf-8
   " Open new split panes to right and bottom, which feels more natural
   set splitbelow
   set splitright
+
+  " Theme
+  hi Comment guifg=#5C6370 ctermfg=59
 
 " ##################### Helpers for VimRC ############################
 " Split edit your vimrc. Type space, v, r in sequence to trigger
@@ -171,3 +174,4 @@ endif
     endif
   endfunction
   map <Leader>n :call RenameFile()<cr>
+
