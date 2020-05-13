@@ -18,9 +18,12 @@ set encoding=utf-8
     Plug 'tpope/vim-commentary' 
     "autocmd FileType apache setlocal commentstring=#\ %s
     
-    Plug 'scrooloose/nerdtree'    " File Browser - Nerd Tree
+    Plug 'preservim/nerdtree'     " File Browser - Nerd Tree
     Plug 'davidhalter/jedi-vim'   " Python Plugin
     Plug 'fatih/vim-go'           " Go Plugin 
+    Plug 'tpope/vim-fugitive'     " Git wrapper
+    Plug 'SirVer/ultisnips'       " Snippets enginke
+    
     
     " color schemes
     Plug 'rafi/awesome-vim-colorschemes'
