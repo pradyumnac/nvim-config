@@ -7,17 +7,17 @@ set encoding=utf-8
 
 " ####################### Vim Plug #####################################
 " Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.config/nvim/plugged')
+  " - For Neovim: stdpath('data') . '/plugged'
+  " - Avoid using standard Vim directory names like 'plugin'
+  call plug#begin('~/.config/nvim/plugged')
 
-" Make sure you use single quotes
+  " Make sure you use single quotes
 
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'tpope/vim-surround'
+  " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+    Plug 'tpope/vim-surround'
 
-" Initialize plugin system
-call plug#end()
+  " Initialize plugin system
+  call plug#end()
 
 
 
@@ -29,9 +29,20 @@ call plug#end()
 	set backspace=indent,eol,start  " Sane backspace behavior
 	set history=1000                " Remember last 1000 commands
 	set scrolloff=4                 " Keep at least 4 lines below cursor
+	set nobackup
+        set nowritebackup
+        set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+	
+	" Softtabs, 2 spaces
+	set tabstop=2
+	set shiftwidth=2
+	set shiftround
+	set expandtab
 
 
-
+  " Open new split panes to right and bottom, which feels more natural
+  set splitbelow
+  set splitright
 
 " ##################### Helpers for VimRC ############################
 " Split edit your vimrc. Type space, v, r in sequence to trigger
@@ -68,6 +79,11 @@ call plug#end()
 " Saves Buffer in Normal mode
 	nnoremap <C-s> :w<cr>
 
+" Get off my lawn
+  nnoremap <Left> :echoe "Use h"<CR>
+  nnoremap <Right> :echoe "Use l"<CR>
+  nnoremap <Up> :echoe "Use k"<CR>
+  nnoremap <Down> :echoe "Use j"<CR>
 
 
 " ##################### Window management ###########################
@@ -76,6 +92,12 @@ call plug#end()
 
 " Copy the entire buffer into the system register
 	nmap <leader>co ggVG*y
+
+" Quicker window movement
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-l> <C-w>l
 
 " Edit the db/schema.rb Rails file in a split
 " nmap <leader>sc :split db/schema.rb<cr>
@@ -90,3 +112,17 @@ call plug#end()
 	command! QA qall
 	command! E e
 
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in fzf for listing files. Lightning fast and respects .gitignore
+  let $FZF_DEFAULT_COMMAND = 'ag --literal --files-with-matches --nocolor --hidden -g ""'
+
+  if !exists(":Ag")
+    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+    nnoremap \ :Ag<SPACE>
+  endif
+endif
