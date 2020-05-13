@@ -52,10 +52,11 @@ set encoding=utf-8
   set splitright
 
   " Theme
-  hi Comment guifg=#5C6370 ctermfg=59
+  colorscheme atom
+  " hi Comment guifg=#5C6370 ctermfg=59
 
 " ##################### Helpers for VimRC ############################
-" Split edit your vimrc. Type space, v, r in sequence to trigger
+"Split edit your vimrc. Type space, v, r in sequence to trigger
 	nmap <leader>vr :sp $MYVIMRC<cr>
 
 " Edit your vimrc in a new tab
