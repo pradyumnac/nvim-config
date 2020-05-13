@@ -15,8 +15,11 @@ set encoding=utf-8
 
   " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
     Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-commentary'
+    "autocmd FileType apache setlocal commentstring=#\ %s
+    
 
-  " Initialize plugin system
+ " Initialize plugin system
   call plug#end()
 
 
@@ -112,7 +115,27 @@ set encoding=utf-8
 	command! QA qall
 	command! E e
 
+" Merge a tab into a split in the previous window
+  function! MergeTabs()
+    if tabpagenr() == 1
+      return
+    endif
+    let bufferName = bufname("%")
+    if tabpagenr("$") == tabpagenr()
+      close!
+    else
+      close!
+      tabprev
+    endif
+    split
+    execute "buffer " . bufferName
+  endfunction
 
+  nmap <C-W>u :call MergeTabs()<CR>
+
+
+
+" ###################### Silver Searcher #############################
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
@@ -126,3 +149,18 @@ if executable('ag')
     nnoremap \ :Ag<SPACE>
   endif
 endif
+
+" ###################### Helpers ######################################
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RENAME CURRENT FILE (thanks Gary Bernhardt)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+      exec ':saveas ' . new_name
+      exec ':silent !rm ' . old_name
+      redraw!
+    endif
+  endfunction
+  map <Leader>n :call RenameFile()<cr>
