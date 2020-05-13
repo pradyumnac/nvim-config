@@ -13,11 +13,15 @@ set encoding=utf-8
 
   " Make sure you use single quotes
 
-  " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-    Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-commentary'
+    " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align 
+    Plug 'tpope/vim-surround' 
+    Plug 'tpope/vim-commentary' 
     "autocmd FileType apache setlocal commentstring=#\ %s
     
+    Plug 'scrooloose/nerdtree'    " File Browser - Nerd Tree
+    Plug 'davidhalter/jedi-vim'   " Python Plugin
+    Plug 'fatih/vim-go'           " Go Plugin 
+
 
  " Initialize plugin system
   call plug#end()
@@ -133,6 +137,9 @@ set encoding=utf-8
 
   nmap <C-W>u :call MergeTabs()<CR>
 
+" Git Shortcuts
+  " Type message and press Enter 
+	nnoremap <leader>gp :!gitpush 
 
 
 " ###################### Silver Searcher #############################
