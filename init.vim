@@ -19,12 +19,14 @@ set encoding=utf-8
     "autocmd FileType apache setlocal commentstring=#\ %s
     
     Plug 'preservim/nerdtree'     " File Browser - Nerd Tree
-    Plug 'davidhalter/jedi-vim'   " Python Plugin
+    " Plug 'davidhalter/jedi-vim'   " Python Plugin
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
     
     "Plug 'fatih/vim-go'           " Go Plugin 
     
     Plug 'tpope/vim-fugitive'     " Git wrapper
-    Plug 'SirVer/ultisnips'       " Snippets enginke
+    " Plug 'SirVer/ultisnips'       " Snippets enginke
     
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
