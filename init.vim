@@ -58,6 +58,17 @@ set encoding=utf-8
   colorscheme atom
   " hi Comment guifg=#5C6370 ctermfg=59
 
+  " NetRW Settings
+  let g:netrw_banner = 0
+  let g:netrw_liststyle = 3
+  let g:netrw_browse_split = 4
+  let g:netrw_altv = 1
+  let g:netrw_winsize = 25
+
+  " NerdTreeToggle
+  " the ignore patterns are regular expression strings and seprated by comma
+  let NERDTreeIgnore = ['\.pyc$', '^__pycache__$']
+
 " ##################### Helpers for VimRC ############################
 "Split edit your vimrc. Type space, v, r in sequence to trigger
 	nmap <leader>vr :sp $MYVIMRC<cr>
@@ -148,6 +159,11 @@ set encoding=utf-8
   " Type message and press Enter (FIsh Shell alias)
 	nnoremap <leader>gp :!gitpush 
 
+" Nerdtree toggle
+	nmap <leader>ntt :NERDTreeToggle<cr>
+
+" Netrw launch
+  nmap <leader>nrw :Vex<cr>
 
 " ###################### Silver Searcher #############################
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
