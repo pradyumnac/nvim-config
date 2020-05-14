@@ -40,14 +40,30 @@ set encoding=utf-8
 	set history=1000                " Remember last 1000 commands
 	set scrolloff=4                 " Keep at least 4 lines below cursor
 	set nobackup
-        set nowritebackup
-        set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+  set nowritebackup
+  set noswapfile                  " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+  set ruler                       "Always show current position
+  
 	
 	" Softtabs, 2 spaces
 	set tabstop=2
 	set shiftwidth=2
 	set shiftround
 	set expandtab
+  
+  " Let's save undo info!
+  if !isdirectory($HOME."/.config/nvim")
+      call mkdir($HOME."/.config/nvim", "", 0770)
+  endif
+  if !isdirectory($HOME."/.config/nvim/undo-dir")
+      call mkdir($HOME."/.config/nvim/undo-dir", "", 0700)
+  endif
+  set undodir=$HOME/.config/nvim/undo-dir
+  set undofile
+
+  " search case insensitive unless pattern include caps
+  set ignorecase
+  set smartcase
 
 
   " Open new split panes to right and bottom, which feels more natural
@@ -195,3 +211,9 @@ endif
   endfunction
   map <Leader>n :call RenameFile()<cr>
 
+" ## autocmd 
+augroup every
+  autocmd!
+  au InsertEnter * set norelativenumber
+  au InsertLeave * set relativenumber
+augroup END
