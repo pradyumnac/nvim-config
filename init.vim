@@ -20,10 +20,15 @@ set encoding=utf-8
     
     Plug 'preservim/nerdtree'     " File Browser - Nerd Tree
     Plug 'davidhalter/jedi-vim'   " Python Plugin
-    Plug 'fatih/vim-go'           " Go Plugin 
+    
+    "Plug 'fatih/vim-go'           " Go Plugin 
+    
     Plug 'tpope/vim-fugitive'     " Git wrapper
     Plug 'SirVer/ultisnips'       " Snippets enginke
     
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+
     
     " color schemes
     Plug 'rafi/awesome-vim-colorschemes'
@@ -119,6 +124,8 @@ set encoding=utf-8
 	imap <C-s> <esc>:w<cr>
 " Saves Buffer in Normal mode
 	nnoremap <C-s> :w<cr>
+" Normal mode exit
+  nnoremap <leader>qq :qa<cr>
 
 " Get off my lawn
   nnoremap <Left> :echoe "Use h"<CR>
