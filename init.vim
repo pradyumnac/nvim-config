@@ -9,7 +9,12 @@ set encoding=utf-8
 " Specify a directory for plugins
   " - For Neovim: stdpath('data') . '/plugged'
   " - Avoid using standard Vim directory names like 'plugin'
+  if empty(glob('~/.config/nvim/autoload/plug.vim'))
+    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  endif
   call plug#begin('~/.config/nvim/plugged')
+
 
   " Make sure you use single quotes
 
@@ -23,7 +28,7 @@ set encoding=utf-8
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
     
-    "Plug 'fatih/vim-go'           " Go Plugin 
+    Plug 'fatih/vim-go'           " Go Plugin 
     
     Plug 'tpope/vim-fugitive'     " Git wrapper
     " Plug 'SirVer/ultisnips'       " Snippets enginke
