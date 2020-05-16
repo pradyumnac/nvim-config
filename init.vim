@@ -195,7 +195,7 @@ set encoding=utf-8
     execute "buffer " . bufferName
   endfunction
 
-  nmap <C-W>u :call MergeTabs()<CR>
+  nmap <C-w>u :call MergeTabs()<CR>
 
 " Git Shortcuts
   " Type message and press Enter (FIsh Shell alias)
@@ -253,7 +253,7 @@ augroup END
 au FileType go nmap <Leader>ggr <Plug> (go-run)
 au FileType go nmap <Leader>ggb <Plug>(go-build)
 au FileType go nmap <Leader>ggt <Plug>(go-test)
-au FileType go nmap <Leader>ggc <Plug> (go-coverage)
+au FileType go map <Leader>ggc :GoCoverageToggle 
 
 map <Leader>ggn :cnext<CR>
 map <Leader>ggp :cprevious<CR>
