@@ -1,3 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/mnt/d/Projects/gotut'
+let g:netrw_dirhist_2='/home/doe/repos/nvim'
 let g:netrw_dirhist_1='/data/data/com.termux/files/home/.config/nvim'

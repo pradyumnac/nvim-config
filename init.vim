@@ -55,14 +55,26 @@ set encoding=utf-8
   set nowritebackup
   set noswapfile                  " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
   set ruler                       "Always show current position
-  
+  set autowrite                   " writes automatically when : make is called. Used by vim-go as well 
 	
-	" Softtabs, 2 spaces
-	set tabstop=2
-	set shiftwidth=2
+	" Softtabs, 4 spaces
+	set tabstop=4
+	set shiftwidth=4
 	set shiftround
 	set expandtab
   
+    "" Python
+
+    au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix |
+
+
   " Let's save undo info!
   if !isdirectory($HOME."/.config/nvim")
       call mkdir($HOME."/.config/nvim", "", 0770)
@@ -83,8 +95,8 @@ set encoding=utf-8
   set splitright
 
   " Theme
-  colorscheme atom
-  " hi Comment guifg=#5C6370 ctermfg=59
+  colorscheme molokai
+ " hi Comment guifg=#5C6370 ctermfg=59
 
   " NetRW Settings
   let g:netrw_banner = 0
@@ -148,11 +160,11 @@ set encoding=utf-8
 " Copy the entire buffer into the system register
 	nmap <leader>co ggVG*y
 
-" Quicker window movement
-  nnoremap <C-j> <C-w>j
-  nnoremap <C-k> <C-w>k
-  nnoremap <C-h> <C-w>h
-  nnoremap <C-l> <C-w>l
+" Quicker window movement ( Better to leave this under C-W namespace
+  " nnoremap <C-j> <C-w>j
+  " nnoremap <C-k> <C-w>k
+  " nnoremap <C-h> <C-w>h
+  " nnoremap <C-l> <C-w>l
 
 " Edit the db/schema.rb Rails file in a split
 " nmap <leader>sc :split db/schema.rb<cr>
@@ -195,6 +207,10 @@ set encoding=utf-8
 " Netrw launch
   nmap <leader>nrw :Vex<cr>
 
+" double leader gives semicolon ( Ex Mode)
+  nmap <leader><leader> :
+  
+
 " ###################### Silver Searcher #############################
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -231,3 +247,14 @@ augroup every
   au InsertEnter * set norelativenumber
   au InsertLeave * set relativenumber
 augroup END
+
+
+" vim-go shortcuts
+au FileType go nmap <Leader>ggr <Plug> (go-run)
+au FileType go nmap <Leader>ggb <Plug>(go-build)
+au FileType go nmap <Leader>ggt <Plug>(go-test)
+au FileType go nmap <Leader>ggc <Plug> (go-coverage)
+
+map <Leader>ggn :cnext<CR>
+map <Leader>ggp :cprevious<CR>
+nnoremap <leader>ggx :cclose<CR>
