@@ -25,10 +25,10 @@ set encoding=utf-8
     
     Plug 'preservim/nerdtree'     " File Browser - Nerd Tree
     " Plug 'davidhalter/jedi-vim'   " Python Plugin
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    " Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
     
-    Plug 'fatih/vim-go'           " Go Plugin 
+    " Plug 'fatih/vim-go'           " Go Plugin 
     
     Plug 'tpope/vim-fugitive'     " Git wrapper
     " Plug 'SirVer/ultisnips'       " Snippets enginke
