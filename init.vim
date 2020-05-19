@@ -37,6 +37,7 @@ set encoding=utf-8
     Plug 'vim-airline/vim-airline-themes'
 
     Plug 'vimwiki/vimwiki'
+    Plug 'itchyny/calendar'
     
     " color schemes
     Plug 'rafi/awesome-vim-colorschemes'
@@ -105,6 +106,15 @@ set encoding=utf-8
   let g:netrw_browse_split = 4
   let g:netrw_altv = 1
   let g:netrw_winsize = 25
+
+  "  Vim Wiki
+  " vimwiki stuff 
+  "  Run multiple wikis 
+  let g:vimwiki_list = [{'path': '~/repos/VimWiki/personal.wiki'},
+                        \{'path': '~/repos/VimWiki/tech.wiki'}]
+  au BufRead,BufNewFile *.wiki set filetype=vimwiki
+  :autocmd FileType vimwiki map d :VimwikiMakeDiaryNote
+
 
   " NerdTreeToggle
   " the ignore patterns are regular expression strings and seprated by comma
