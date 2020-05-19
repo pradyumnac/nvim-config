@@ -36,6 +36,7 @@ set encoding=utf-8
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
+    Plug 'vimwiki/vimwiki'
     
     " color schemes
     Plug 'rafi/awesome-vim-colorschemes'
