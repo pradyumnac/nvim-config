@@ -29,9 +29,10 @@ set encoding=utf-8
     " Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
     
     Plug 'fatih/vim-go'           " Go Plugin 
+    Plug 'majutsushi/tagbar'           " Go Plugin 
     
     Plug 'tpope/vim-fugitive'     " Git wrapper
-    Plug 'SirVer/ultisnips'       " Snippets enginke
+    " Plug 'SirVer/ultisnips'       " Snippets enginke
     
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -211,6 +212,9 @@ set encoding=utf-8
 " Git Shortcuts
   " Type message and press Enter (FIsh Shell alias)
 	nnoremap <leader>gp :!gitpush 
+
+" Tagbar toggle
+	nmap <leader>tbt :TagbarToggle<cr>
 
 " Nerdtree toggle
 	nmap <leader>ntt :NERDTreeToggle<cr>
