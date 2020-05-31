@@ -16,31 +16,35 @@ set encoding=utf-8
   call plug#begin('~/.config/nvim/plugged')
 
 
-  " Make sure you use single quotes
+    " Make sure you use single quotes
 
-    " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align 
-    Plug 'tpope/vim-surround' 
-    Plug 'tpope/vim-commentary' 
-    "autocmd FileType apache setlocal commentstring=#\ %s
-    
-    Plug 'preservim/nerdtree'     " File Browser - Nerd Tree
-    " Plug 'davidhalter/jedi-vim'   " Python Plugin
-    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    " Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
-    
-    " Plug 'fatih/vim-go'           " Go Plugin 
-    
-    Plug 'tpope/vim-fugitive'     " Git wrapper
-    " Plug 'SirVer/ultisnips'       " Snippets enginke
-    
+    " Generic Plugins
+    Plug 'rafi/awesome-vim-colorschemes'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-
     Plug 'vimwiki/vimwiki'
     Plug 'itchyny/calendar.vim'
+    Plug 'machakann/vim-highlightedyank'
+
+    " Tools
+    Plug 'preservim/nerdtree'           " File Browser - Nerd Tree
+
+    " Programming plugins ( General)
+    Plug 'tpope/vim-surround' 
+    Plug 'tpope/vim-commentary'         "autocmd FileType apache setlocal commentstring=#\ %s
+    Plug 'majutsushi/tagbar'            " Right Ctags bar ( Universal ctags, install separately 
+    Plug 'tpope/vim-fugitive'           " Git wrapper
+    " Plug 'SirVer/ultisnips'           " Snippets enginke
     
-    " color schemes
-    Plug 'rafi/awesome-vim-colorschemes'
+    
+    " Go setup    
+    Plug 'fatih/vim-go'                 " Go Plugin 
+    
+    " Python setup
+    Plug 'davidhalter/jedi-vim'         " Python Plugin
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'deoplete-plugins/deoplete-jedi', { 'do': 'make'}
+    
   call plug#end()
 
 
@@ -120,6 +124,14 @@ set encoding=utf-8
   " the ignore patterns are regular expression strings and seprated by comma
   let NERDTreeIgnore = ['\.pyc$', '^__pycache__$']
 
+  " Python setup
+  let g:deoplete#enable_at_startup = 1
+
+  " disable autocompletion, cause we use deoplete for completion
+  let g:jedi#completions_enabled = 0
+
+  " open the go-to function in split, not another buffer
+  let g:jedi#use_splits_not_buffers = "right"
 " ##################### Helpers for VimRC ############################
 "Split edit your vimrc. Type space, v, r in sequence to trigger
 	nmap <leader>vr :sp $MYVIMRC<cr>
@@ -211,6 +223,9 @@ set encoding=utf-8
 " Git Shortcuts
   " Type message and press Enter (FIsh Shell alias)
 	nnoremap <leader>gp :!gitpush 
+
+" Tagbar toggle
+	nmap <leader>tbt :TagbarToggle<cr>
 
 " Nerdtree toggle
 	nmap <leader>ntt :NERDTreeToggle<cr>
