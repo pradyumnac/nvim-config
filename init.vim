@@ -38,7 +38,7 @@ set encoding=utf-8
     
     
     " Go setup    
-    " Plug 'fatih/vim-go'                 " Go Plugin 
+    Plug 'fatih/vim-go'                 " Go Plugin 
     
     " Python setup
     Plug 'davidhalter/jedi-vim'         " Python Plugin
