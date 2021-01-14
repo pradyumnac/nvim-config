@@ -25,7 +25,8 @@ set encoding=utf-8
     Plug 'vimwiki/vimwiki'
     Plug 'itchyny/calendar.vim'
     Plug 'machakann/vim-highlightedyank'
-
+    Plug 'jiangmiao/auto-pairs'
+    
     " Tools
     Plug 'preservim/nerdtree'           " File Browser - Nerd Tree
 
@@ -117,7 +118,6 @@ set encoding=utf-8
   let g:vimwiki_list = [{'path': '~/repos/VimWiki/personal.wiki'},
                         \{'path': '~/repos/VimWiki/tech.wiki'}]
   au BufRead,BufNewFile *.wiki set filetype=vimwiki
-  :autocmd FileType vimwiki map d :VimwikiMakeDiaryNote
 
 
   " NerdTreeToggle
