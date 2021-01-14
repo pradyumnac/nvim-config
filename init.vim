@@ -1,7 +1,7 @@
 set encoding=utf-8
 
 " Use the space key as our leader. Put this near the top of your vimrc
-	let mapleader = "\<Space>"
+let mapleader = "\<Space>"
 
 
 
@@ -59,11 +59,13 @@ set encoding=utf-8
 	set history=1000                " Remember last 1000 commands
 	set scrolloff=4                 " Keep at least 4 lines below cursor
 	set nobackup
-  set nowritebackup
-  set noswapfile                  " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
-  set ruler                       "Always show current position
-  set autowrite                   " writes automatically when : make is called. Used by vim-go as well 
-	
+    set nowritebackup
+    set noswapfile                  " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+    set ruler                       "Always show current position
+    set autowrite                   " writes automatically when : make is called. Used by vim-go as well 
+    filetype plugin on
+    syntax on
+
 	" Softtabs, 4 spaces
 	set tabstop=4
 	set shiftwidth=4
@@ -118,6 +120,8 @@ set encoding=utf-8
   let g:vimwiki_list = [{'path': '~/repos/VimWiki/personal.wiki'},
                         \{'path': '~/repos/VimWiki/tech.wiki'}]
   au BufRead,BufNewFile *.wiki set filetype=vimwiki
+
+  :autocmd FileType vimwiki map d :VimwikiMakeDiaryNote
 
 
   " NerdTreeToggle
